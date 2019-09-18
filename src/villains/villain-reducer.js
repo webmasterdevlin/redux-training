@@ -21,7 +21,14 @@ export const villainReducer = (state = initialState, action) => {
             return {...state, isLoading: false, villains: action.payload};
         case types.FETCH_VILLAINS_FAIL:
             return {...state, isLoading: false, error: action.payload};
-        
+        case types.REMOVE_VILLAIN_REQUEST:
+            return {...state, isLoading: true}
+        case types.REMOVE_VILLAIN_SUCCESS:
+            return {...state, 
+                villains: state.villains.filter(villain => villain.id !== action.payload),
+            isLoading: false}
+        case types.REMOVE_VILLAIN_FAIL:
+            return {...state, isLoading: false, error: action.payload}
         default:
             return state;
     }
