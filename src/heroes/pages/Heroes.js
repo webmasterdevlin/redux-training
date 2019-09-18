@@ -16,7 +16,7 @@ export default function Heroes () {
     }
 
     return (<ul>
-        {heroes.map(h => <li>{h.firstName} 
+        {heroes.map(h => <li key={h.id}>{h.firstName} 
         <button onClick={() => removeItem(h.id)}>Delete</button>
         </li>)}
     </ul>)
