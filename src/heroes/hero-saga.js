@@ -1,7 +1,7 @@
 import {put, takeEvery, call} from 'redux-saga/effects';
-import {getHeroes} from './hero-service';
+import {getHeroes, deleteHero} from './hero-service';
 import {all} from '@redux-saga/core/effects';
-import {FETCH_HEROES_REQUEST, FETCH_HEROES_SUCCESS, FETCH_HEROES_FAIL} from './hero-actions';
+import {FETCH_HEROES_REQUEST, FETCH_HEROES_SUCCESS, FETCH_HEROES_FAIL, REMOVE_HERO_REQUEST, REMOVE_HERO_SUCCESS, REMOVE_HERO_FAIL} from './hero-actions';
 
 /* function generator implementations of Saga */
 function* fetchingHeroes() {
@@ -15,13 +15,32 @@ function* fetchingHeroes() {
     }
 }
 
+function* removingHero({payload: id}) {
+    try {
+        yield deleteHero(id);
+        yield put({type: REMOVE_HERO_SUCCESS, payload: id})
+    } catch (e) {
+        console.log(e.message);
+        alert(e.message);
+        yield put({
+            type: REMOVE_HERO_FAIL,
+            payload: e.message
+        })
+    }
+} 
+
 function* watchFetchingHeroes() {
     yield takeEvery(FETCH_HEROES_REQUEST, fetchingHeroes)
+}
+
+function* watchRemovingHero() {
+    yield takeEvery(REMOVE_HERO_REQUEST, removingHero);
 }
 
 /* Saga sends all the watchers to the sagaMiddleware to run */
 export function* heroSaga() {
     yield all([
         watchFetchingHeroes(),
+        watchRemovingHero()
     ])
 }

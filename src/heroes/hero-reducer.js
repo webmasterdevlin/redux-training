@@ -22,7 +22,14 @@ export const heroReducer = (state = initialState, action) => {
         case types.FETCH_HEROES_FAIL :
             return {...state, isLoading: false, error: action.payload};
             
-        default:
+        case types.REMOVE_HERO_REQUEST :
+            return {...state, isLoading: true};
+        case types.REMOVE_HERO_SUCCESS :
+            return {...state, heroes: state.heroes.filter(hero => hero.id !== action.payload), isLoading: false}
+        case types.REMOVE_HERO_FAIL :
+            return {...state, isLoading: false, error: action.payload}
+        
+            default:
             return state;
     }
 }
