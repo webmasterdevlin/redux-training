@@ -21,7 +21,7 @@ export const heroReducer = (state = initialState, action) => {
             return {...state, isLoading: false, heroes: action.payload}
         case types.FETCH_HEROES_FAIL :
             return {...state, isLoading: false, error: action.payload};
-            
+
         case types.REMOVE_HERO_REQUEST :
             return {...state, isLoading: true};
         case types.REMOVE_HERO_SUCCESS :
@@ -29,6 +29,13 @@ export const heroReducer = (state = initialState, action) => {
         case types.REMOVE_HERO_FAIL :
             return {...state, isLoading: false, error: action.payload}
         
+        case types.ADD_HERO_REQUEST :
+            return {...state, isLoading: true}
+        case types.ADD_HERO_SUCCESS :
+            return {...state, isLoading: false, heroes: [...state.heroes, action.payload]}
+        case types.ADD_HERO_FAIL :
+            return {...state, isLoading: false, error: action.payload}
+            
             default:
             return state;
     }

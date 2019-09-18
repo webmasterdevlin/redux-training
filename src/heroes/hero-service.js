@@ -8,3 +8,7 @@ export async function getHeroes() {
 export async function deleteHero(id) {
     return await http.delete(`${BaseUrl.heroes}${id}`)
 }
+
+export async function postHero(newHero) {
+    return await http.post(BaseUrl.heroes, newHero);
+}
