@@ -22,25 +22,11 @@
       "knownAs": "Ut Inc."
     },
     {
-      "id": "161CFABC-F61B-255E-B805-F2CF74AE64F2",
-      "firstName": "Baker",
-      "lastName": "Mullins",
-      "house": "Sri Lanka",
-      "knownAs": "Magna Praesent Associates"
-    },
-    {
       "id": "C31127D2-2F80-9FE8-05E0-FB8220179786",
       "firstName": "Cheryl",
       "lastName": "Todd",
       "house": "Macao",
       "knownAs": "Aliquam Gravida Foundation"
-    },
-    {
-      "id": "32EDC4C9-C544-73C0-6879-59537A65C9D7",
-      "firstName": "Anastasia",
-      "lastName": "Conner",
-      "house": "El Salvador",
-      "knownAs": "Nam Porttitor Scelerisque Inc."
     },
     {
       "id": "51BC096B-53A9-EFCD-FEFE-F3613D56B397",
@@ -83,13 +69,6 @@
       "lastName": "Wooten",
       "house": "Togo",
       "knownAs": "Ultrices Posuere Industries"
-    },
-    {
-      "id": "63E29E19-7FF6-A7A2-3332-8C456E44B561",
-      "firstName": "Shelby",
-      "lastName": "Pollard",
-      "house": "Guernsey",
-      "knownAs": "Aliquet Associates"
     },
     {
       "id": "7C5625B6-A0D8-9540-3732-3E7458A3F270",
@@ -510,6 +489,13 @@
       "lastName": "Kemp",
       "house": "",
       "knownAs": ""
+    },
+    {
+      "firstName": "devlin",
+      "lastNam": "duldulao",
+      "house": "none",
+      "knownAs": "none",
+      "id": "1lmyCYC"
     }
   ],
   "villains": [
@@ -1051,6 +1037,13 @@
       "lastName": "Giles",
       "house": "Afghanistan",
       "knownAs": "Dui Suspendisse PC"
+    },
+    {
+      "firstName": "Riki",
+      "lastNam": "Maru",
+      "house": "none",
+      "knownAs": "Stealth assassin",
+      "id": "DbdkIav"
     }
   ]
 }

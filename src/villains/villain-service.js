@@ -8,3 +8,7 @@ export async function getVillains() {
 export async function deleteVillain(id) {
     return await http.delete(`${BaseUrl.villains}${id}`)
 }
+
+export async function postVillain(newVillain) {
+    return await http.post(BaseUrl.villains, newVillain);
+}

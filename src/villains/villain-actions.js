@@ -1,4 +1,4 @@
-import {getVillains, deleteVillain} from './villain-service';
+import {getVillains, deleteVillain, postVillain} from './villain-service';
 
 /* action types */
 export const FETCH_VILLAINS_REQUEST = "FETCH_VILLAINS_REQUEST";
@@ -9,6 +9,9 @@ export const REMOVE_VILLAIN_REQUEST = "REMOVE_VILLAIN_REQUEST";
 export const REMOVE_VILLAIN_SUCCESS = "REMOVE_VILLAIN_SUCCESS";
 export const REMOVE_VILLAIN_FAIL = "REMOVE_VILLAIN_FAIL"; 
 
+export const ADD_VILLAIN_REQUEST = "ADD_VILLAIN_REQUEST";
+export const ADD_VILLAIN_SUCCESS = "ADD_VILLAIN_SUCCESS";
+export const ADD_VILLAIN_FAIL = "ADD_VILLAIN_FAIL"; 
 
 /* action creators: thunk version */
 export const fetchVillains = () => {
@@ -43,6 +46,25 @@ export const removeVillain = id => {
             alert(e.message);
             dispatch({
                 type: REMOVE_VILLAIN_FAIL,
+                payload: e.message
+            })
+        }
+    }
+}
+
+export const addVillain = (newVillain) => {
+    return async dispatch => {
+        dispatch({
+            type: ADD_VILLAIN_REQUEST
+        });
+        try {
+            const {data} = await postVillain(newVillain);
+            dispatch({type: ADD_VILLAIN_SUCCESS, payload: data})
+        } catch (e) {
+            console.log(e.message);
+            alert(e.message);
+            dispatch({
+                type: ADD_VILLAIN_FAIL,
                 payload: e.message
             })
         }
